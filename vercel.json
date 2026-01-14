@@ -5,12 +5,9 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "api/index.ts" },
-    { "src": "/assets/(.*)", "dest": "/dist/public/assets/$1" },
-    { "src": "/favicon.png", "dest": "/dist/public/favicon.png" },
-    { "src": "/opengraph.jpg", "dest": "/dist/public/opengraph.jpg" },
-    { "src": "/(.*)", "dest": "/dist/public/index.html" }
-  ],
-  "static": {
-    "public": "dist/public"
-  }
+    { "src": "/assets/(.*)", "dest": "/public/assets/$1" },
+    { "src": "/favicon.png", "dest": "/public/favicon.png" },
+    { "src": "/opengraph.jpg", "dest": "/public/opengraph.jpg" },
+    { "src": "/(.*)", "dest": "/public/index.html" }
+  ]
 }
