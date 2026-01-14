@@ -1,5 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "version": 2,
+  "builds": [
+    { "src": "api/index.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "api/index.ts" },
+    { "src": "/assets/(.*)", "dest": "/dist/public/assets/$1" },
+    { "src": "/favicon.png", "dest": "/dist/public/favicon.png" },
+    { "src": "/opengraph.jpg", "dest": "/dist/public/opengraph.jpg" },
+    { "src": "/(.*)", "dest": "/dist/public/index.html" }
   ]
 }
