@@ -9,5 +9,8 @@
     { "src": "/favicon.png", "dest": "/dist/public/favicon.png" },
     { "src": "/opengraph.jpg", "dest": "/dist/public/opengraph.jpg" },
     { "src": "/(.*)", "dest": "/dist/public/index.html" }
-  ]
+  ],
+  "static": {
+    "public": "dist/public"
+  }
 }
