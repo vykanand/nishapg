@@ -1,6 +1,6 @@
 
 export default function TestPaymentPage() {
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = new URLSearchParams(globalThis.location.search);
   const product = searchParams.get("product") || "Product";
   const amount = searchParams.get("amount") || "-";
 

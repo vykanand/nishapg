@@ -121,8 +121,8 @@ export default function Home() {
               { label: "Enterprise Clients", value: "500+" },
               { label: "Projects Delivered", value: "1.2k" },
               { label: "Global Offices", value: "12" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center md:text-left space-y-2">
+            ].map((stat) => (
+              <div key={stat.label} className="text-center md:text-left space-y-2">
                 <div className="text-4xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{stat.label}</div>
               </div>
@@ -162,8 +162,8 @@ export default function Home() {
                 description: "Strategic consulting to modernize legacy systems and integrate cutting-edge digital technologies into your business.",
                 price: "₹1,00,000"
               }
-            ].map((service, i) => (
-              <div key={i} className="group p-8 border border-slate-200 bg-slate-50 hover:bg-white hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+            ].map((service) => (
+              <div key={service.title} className="group p-8 border border-slate-200 bg-slate-50 hover:bg-white hover:border-blue-200 hover:shadow-xl transition-all duration-300">
                 <div className="mb-6 p-4 bg-white border border-slate-100 inline-block shadow-sm group-hover:bg-blue-50 transition-colors">
                   {service.icon}
                 </div>
@@ -200,8 +200,8 @@ export default function Home() {
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                {["Industry Standard Security", "24/7 Enterprise Support", "Agile Methodology", "Scalable Architecture"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
+                {["Industry Standard Security", "24/7 Enterprise Support", "Agile Methodology", "Scalable Architecture"].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
                     <div className="h-2 w-2 bg-blue-500"></div>
                     <span className="text-sm font-medium">{item}</span>
                   </div>
