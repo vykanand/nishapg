@@ -1,0 +1,6 @@
+/* Enterprise Styles */
+html { scroll-behavior: smooth; }
+.hero-gradient {
+    background: linear-gradient(to right, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.9) 50%, rgba(15, 23, 42, 0.4) 100%);
+}
+.font-ibm { font-family: 'IBM Plex Sans', sans-serif; }

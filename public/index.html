@@ -3,298 +3,351 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NDS Enterprise | Digital Solutions</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Enterprise Digital Solutions | Billion IT Company</title>
+    <meta
+      name="description"
+      content="Professional digital agency providing website development and Enterprise business IT products by Billion IT Company."
+    />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="icons.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              slate: {
+                900: "#0f172a",
+                800: "#1e293b",
+                700: "#334155",
+                600: "#475569",
+                500: "#64748b",
+              },
+            },
+            fontFamily: {
+              sans: ["IBM Plex Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    <nav>
-      <div class="container">
-        <div class="brand">
-          <span class="brand-icon" id="brand-icon"></span>
-          <span class="brand-title">NDS ENTERPRISE</span>
+  <body class="font-sans antialiased text-slate-900 bg-white">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm"
+    >
+      <div
+        class="container mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-2">
+          <div class="bg-primary p-1.5">
+            <svg
+              class="h-6 w-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+              ></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-primary"
+            >Billion IT Company</span
+          >
         </div>
-        <div class="nav-links">
-          <button class="nav-link" data-section="hero">Home</button>
-          <button class="nav-link" data-section="services">Solutions</button>
-          <button class="nav-link" data-section="about">Company</button>
-          <button class="nav-link" data-section="contact">Contact</button>
-          <button class="get-started" onclick="scrollToSection('contact')">
-            Get Started
-          </button>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="#hero"
+            class="text-sm font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="#services"
+            class="text-sm font-medium hover:text-primary transition-colors"
+            >Solutions</a
+          >
+          <a
+            href="#about"
+            class="text-sm font-medium hover:text-primary transition-colors"
+            >Company</a
+          >
+          <a
+            href="#contact"
+            class="text-sm font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+          <a
+            href="#contact"
+            class="bg-primary hover:bg-primary/90 text-white px-6 py-2 text-sm font-medium transition-colors"
+            >Get Started</a
+          >
         </div>
-        <button class="mobile-toggle" aria-label="Menu" aria-expanded="false">
-          ☰
+
+        <!-- Mobile Toggle -->
+        <button id="menu-btn" class="md:hidden p-2 text-slate-600">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
         </button>
       </div>
-      <div class="mobile-nav">
-        <button class="nav-link" data-section="hero">Home</button>
-        <button class="nav-link" data-section="services">Solutions</button>
-        <button class="nav-link" data-section="about">Company</button>
-        <button class="nav-link" data-section="contact">Contact</button>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 p-4 flex flex-col gap-4 shadow-lg"
+      >
+        <a
+          href="#hero"
+          class="mobile-link text-left font-medium p-2 hover:bg-slate-50"
+          >Home</a
+        >
+        <a
+          href="#services"
+          class="mobile-link text-left font-medium p-2 hover:bg-slate-50"
+          >Solutions</a
+        >
+        <a
+          href="#about"
+          class="mobile-link text-left font-medium p-2 hover:bg-slate-50"
+          >Company</a
+        >
+        <a
+          href="#contact"
+          class="mobile-link text-left font-medium p-2 hover:bg-slate-50"
+          >Contact</a
+        >
       </div>
     </nav>
 
-    <section id="hero" class="hero">
-      <div class="container">
-        <div>
-          <div class="hero-badge">
-            <span id="globe-icon"></span> Global Digital Leader
+    <!-- Hero -->
+    <section
+      id="hero"
+      class="relative pt-20 min-h-[90vh] flex items-center bg-slate-900 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0 opacity-40">
+        <img
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+          alt="Technology Background"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+
+      <div
+        class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div class="space-y-8">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider"
+          >
+            Global Digital Leader
           </div>
-          <h1>
-            Engineering the <span style="color: #2563eb">Future</span> of
-            Digital Business
+          <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight">
+            Engineering the <span class="text-blue-500">Future</span> of Digital
+            Business
           </h1>
-          <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 500px">
+          <p class="text-lg text-slate-300 max-w-xl leading-relaxed">
             We deliver enterprise-grade web development and business IT
             products. Transforming complex challenges into scalable digital
             solutions.
           </p>
-          <div class="cta">
-            <button class="consult" onclick="scrollToSection('contact')">
-              Request Consultation <span id="arrow-right-icon"></span>
-            </button>
-            <button class="explore" onclick="scrollToSection('services')">
-              Explore Services
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div class="container">
-        <div class="grid">
-          <div class="stat">
-            <div class="stat-value">15+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">500+</div>
-            <div class="stat-label">Enterprise Clients</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">1.2k</div>
-            <div class="stat-label">Projects Delivered</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">12</div>
-            <div class="stat-label">Global Offices</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Enterprise Solutions</h2>
-        <div class="service-list">
-          <div class="service">
-            <div class="service-icon" id="webdev-icon"></div>
-            <div class="service-title">Web Development</div>
-            <div class="service-desc">
-              Custom enterprise web applications built on scalable
-              architectures. We focus on performance, security, and user
-              experience.
-            </div>
+          <div class="flex flex-col sm:row gap-4">
             <a
               href="#contact"
-              class="learn-more"
-              onclick="scrollToSection('contact');return false;"
-              >Learn more</a
+              class="bg-primary hover:bg-primary/90 text-white text-base px-8 py-4 text-center transition-colors"
+              >Request Consultation</a
+            >
+            <a
+              href="#services"
+              class="border border-slate-600 text-white hover:bg-slate-800 px-8 py-4 text-center transition-colors"
+              >Explore Services</a
             >
           </div>
-          <div class="service">
-            <div class="service-icon" id="server-icon"></div>
-            <div class="service-title">Business IT Products</div>
-            <div class="service-desc">
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mb-16 space-y-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+            Enterprise Solutions
+          </h2>
+          <div class="w-20 h-1 bg-primary"></div>
+          <p class="text-lg text-slate-600">
+            End-to-end technology services designed for scalability, security,
+            and performance.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="p-8 border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-xl transition-all"
+          >
+            <h3 class="text-xl font-bold text-slate-900 mb-3">
+              Web Development
+            </h3>
+            <p class="text-slate-600 mb-2">
+              Custom web applications built on cloud hosting and flexible
+              costing.
+            </p>
+            <div class="text-lg font-semibold text-green-700 mb-4">₹30,000</div>
+            <a
+              href="checkout.html?product=webdev"
+              class="text-white bg-primary hover:bg-primary/90 font-semibold flex items-center justify-center px-6 py-3 rounded transition-colors"
+              >Buy now</a
+            >
+          </div>
+          <div
+            class="p-8 border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-xl transition-all"
+          >
+            <h3 class="text-xl font-bold text-slate-900 mb-3">
+              Business IT Products
+            </h3>
+            <p class="text-slate-600 mb-2">
               Comprehensive IT infrastructure and software solutions tailored
-              for large-scale organizational needs and workflows.
-            </div>
+              for large-scale organizational needs.
+            </p>
+            <div class="text-lg font-semibold text-green-700 mb-4">₹70,000</div>
             <a
-              href="#contact"
-              class="learn-more"
-              onclick="scrollToSection('contact');return false;"
-              >Learn more</a
+              href="checkout.html?product=businessit"
+              class="text-white bg-primary hover:bg-primary/90 font-semibold flex items-center justify-center px-6 py-3 rounded transition-colors"
+              >Buy now</a
             >
           </div>
-          <div class="service">
-            <div class="service-icon" id="shield-icon"></div>
-            <div class="service-title">Digital Transformation</div>
-            <div class="service-desc">
+          <div
+            class="p-8 border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-xl transition-all"
+          >
+            <h3 class="text-xl font-bold text-slate-900 mb-3">
+              Digital Transformation
+            </h3>
+            <p class="text-slate-600 mb-2">
               Strategic consulting to modernize legacy systems and integrate
-              cutting-edge digital technologies into your business.
+              cutting-edge digital technologies.
+            </p>
+            <div class="text-lg font-semibold text-green-700 mb-4">
+              ₹1,50,000
             </div>
             <a
-              href="#contact"
-              class="learn-more"
-              onclick="scrollToSection('contact');return false;"
-              >Learn more</a
+              href="checkout.html?product=digitaltransformation"
+              class="text-white bg-primary hover:bg-primary/90 font-semibold flex items-center justify-center px-6 py-3 rounded transition-colors"
+              >Buy now</a
             >
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="about">
-      <div class="container">
-        <h2>Why Leading Enterprises Choose Us</h2>
-        <div style="color: #cbd5e1; margin-bottom: 24px; max-width: 600px">
-          <p>
-            We are a professional digital agency committed to delivering
-            excellence. Like global leaders in the industry, we prioritize
-            reliability, innovation, and long-term partnership.
+    <!-- About -->
+    <section id="about" class="py-24 bg-slate-900 text-white">
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
+      >
+        <div class="space-y-8">
+          <h2 class="text-3xl md:text-4xl font-bold">
+            Why Enterprises Choose Us
+          </h2>
+          <p class="text-slate-300">
+            We prioritize reliability, innovation, and long-term partnership.
+            Our team leverages deep industry knowledge to solve complex business
+            challenges.
           </p>
-          <p>
-            Our team of experts leverages deep industry knowledge and technical
-            expertise to solve the most complex business challenges. We don't
-            just build websites; we build business value.
-          </p>
-        </div>
-        <div class="features">
-          <div class="feature">
-            <span
-              style="
-                background: #2563eb;
-                width: 8px;
-                height: 8px;
-                display: inline-block;
-                border-radius: 50%;
-              "
-            ></span
-            >Industry Standard Security
-          </div>
-          <div class="feature">
-            <span
-              style="
-                background: #2563eb;
-                width: 8px;
-                height: 8px;
-                display: inline-block;
-                border-radius: 50%;
-              "
-            ></span
-            >24/7 Enterprise Support
-          </div>
-          <div class="feature">
-            <span
-              style="
-                background: #2563eb;
-                width: 8px;
-                height: 8px;
-                display: inline-block;
-                border-radius: 50%;
-              "
-            ></span
-            >Agile Methodology
-          </div>
-          <div class="feature">
-            <span
-              style="
-                background: #2563eb;
-                width: 8px;
-                height: 8px;
-                display: inline-block;
-                border-radius: 50%;
-              "
-            ></span
-            >Scalable Architecture
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-2">
+              <div class="h-2 w-2 bg-primary"></div>
+              <span class="text-sm">Secure Systems</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="h-2 w-2 bg-primary"></div>
+              <span class="text-sm">24/7 Support</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="h-2 w-2 bg-primary"></div>
+              <span class="text-sm">Agile Methods</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="h-2 w-2 bg-primary"></div>
+              <span class="text-sm">Scalable Architecture</span>
+            </div>
           </div>
         </div>
         <img
-          src="opengraph.jpg"
-          alt="Corporate Office"
-          class="about-img"
-          style="margin-top: 32px; max-width: 500px"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+          class="shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+          alt="Building"
         />
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div class="contact-info">
-            <h3>Get in Touch</h3>
-            <div class="info">
-              <div class="info-label">
-                <span id="map-pin-icon"></span> Visit Us
-              </div>
-              <div class="info-value">
-                H4-1004, Eros Sampoornam<br />Noida, India
-              </div>
-            </div>
-            <div class="info">
-              <div class="info-label">
-                <span id="mail-icon"></span> Email Us
-              </div>
-              <div class="info-value">nishagautamnishu@gmail.com</div>
-            </div>
-            <div class="info">
-              <div class="info-label">
-                <span id="phone-icon"></span> Call Us
-              </div>
-              <div class="info-value">9319020990</div>
-            </div>
-            <div class="copyright">
-              © 2026 NDS Enterprise.<br />All rights reserved.
-            </div>
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-slate-50">
+      <div
+        class="container mx-auto px-6 max-w-4xl bg-white shadow-2xl border border-slate-200 flex flex-col md:flex-row"
+      >
+        <div class="md:w-2/5 bg-slate-900 text-white p-10">
+          <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
+          <div class="space-y-6 text-sm">
+            <p>
+              <strong>Visit Us:</strong><br />H4-1004, Eros Sampoornam, Noida
+            </p>
+            <p><strong>Email Us:</strong><br />nishagautamnishu@gmail.com</p>
+            <p><strong>Call Us:</strong><br />9319020990</p>
           </div>
-          <div class="contact-form">
-            <h3>Send an Inquiry</h3>
-            <p>Fill out the form below and our team will get back to you.</p>
-            <form id="contact-form">
-              <label for="name">Full Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                required
-              />
-              <label for="phone">Phone Number</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="+91 0000000000"
-                required
-              />
-              <label for="enquiry">Project Details</label>
-              <textarea
-                id="enquiry"
-                name="enquiry"
-                placeholder="Tell us about your project requirements..."
-                required
-              ></textarea>
-              <button type="submit">Submit Inquiry</button>
-            </form>
-          </div>
+          <p class="mt-12 text-slate-500 text-xs">© 2026 Billion IT Company.</p>
+        </div>
+        <div class="md:w-3/5 p-10">
+          <h3 class="text-2xl font-bold mb-8">Send an Inquiry</h3>
+          <form onsubmit="handleSubmit(event)" class="space-y-6">
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              class="w-full p-3 border border-slate-300 outline-none focus:border-primary"
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              required
+              class="w-full p-3 border border-slate-300 outline-none focus:border-primary"
+            />
+            <textarea
+              placeholder="Project Details"
+              required
+              class="w-full p-3 border border-slate-300 outline-none focus:border-primary h-32"
+            ></textarea>
+            <button
+              type="submit"
+              class="w-full bg-primary text-white font-bold py-4 hover:bg-primary/90 transition-colors"
+            >
+              Submit Inquiry
+            </button>
+          </form>
         </div>
       </div>
     </section>
 
-    <script src="app.js"></script>
-    <script>
-      // Inject SVG icons
-      document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("brand-icon").innerHTML =
-          window.icons.Building2;
-        document.getElementById("globe-icon").innerHTML = window.icons.Globe;
-        document.getElementById("arrow-right-icon").innerHTML =
-          window.icons.ArrowRight;
-        document.getElementById("webdev-icon").innerHTML = window.icons.Globe;
-        document.getElementById("server-icon").innerHTML = window.icons.Server;
-        document.getElementById("shield-icon").innerHTML =
-          window.icons.ShieldCheck;
-        document.getElementById("map-pin-icon").innerHTML = window.icons.MapPin;
-        document.getElementById("mail-icon").innerHTML = window.icons.Mail;
-        document.getElementById("phone-icon").innerHTML = window.icons.Phone;
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>

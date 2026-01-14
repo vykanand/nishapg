@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Billion IT Company</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="font-sans antialiased text-slate-900 bg-slate-50">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="bg-white shadow-xl rounded-lg p-8 max-w-lg w-full">
+        <h1 class="text-2xl font-bold mb-6 text-primary">Checkout</h1>
+        <div id="product-details" class="mb-8"></div>
+        <form id="checkout-form" class="space-y-4">
+          <button
+            type="submit"
+            class="w-full py-3 px-8 text-lg font-bold rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white tracking-wide transition-all duration-200 border-0 outline-none focus:ring-2 focus:ring-blue-300 hover:from-indigo-600 hover:to-blue-500 hover:scale-105 active:scale-100"
+          >
+            Pay Now
+          </button>
+        </form>
+        <div
+          id="checkout-success"
+          class="hidden mt-6 text-green-700 font-semibold text-center"
+        >
+          Thank you for your purchase! We will contact you soon.
+        </div>
+      </div>
+    </div>
+    <script>
+      // Product details based on query param
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get("product");
+      let details = "";
+      if (product === "webdev") {
+        details = `<div class='mb-2'><span class='font-bold'>Product:</span> Web Development (Enterprise)</div><div class='mb-2'><span class='font-bold'>Price:</span> ₹30,000</div><div class='mb-2'><span class='font-bold'>Description:</span> Custom enterprise web applications built on scalable architectures. Performance, security, and UX focused.</div>`;
+      } else if (product === "businessit") {
+        details = `<div class='mb-2'><span class='font-bold'>Product:</span> Business IT Products</div><div class='mb-2'><span class='font-bold'>Price:</span> ₹70,000</div><div class='mb-2'><span class='font-bold'>Description:</span> Comprehensive IT infrastructure and software solutions for large-scale organizations.</div>`;
+      } else if (product === "digitaltransformation") {
+        details = `<div class='mb-2'><span class='font-bold'>Product:</span> Digital Transformation</div><div class='mb-2'><span class='font-bold'>Price:</span> ₹1,50,000</div><div class='mb-2'><span class='font-bold'>Description:</span> Strategic consulting to modernize legacy systems and integrate cutting-edge digital technologies.</div>`;
+      } else {
+        details = `<div class='mb-2 text-red-600'>Invalid product. <a href='index.html' class='underline text-primary'>Go back</a></div>`;
+        document.getElementById("checkout-form").style.display = "none";
+      }
+      document.getElementById("product-details").innerHTML = details;
+      // Fake submit
+      document.getElementById("checkout-form").onsubmit = function (e) {
+        e.preventDefault();
+        document.getElementById("checkout-success").classList.remove("hidden");
+        document.getElementById("checkout-form").style.display = "none";
+      };
+    </script>
+  </body>
+</html>
