@@ -1,12 +1,15 @@
 {
-  "name": "simple-react-server",
+  "name": "appinv",
   "version": "1.0.0",
-  "license": "MIT",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^5.1.0"
   }
 }
-
